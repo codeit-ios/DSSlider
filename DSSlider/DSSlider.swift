@@ -8,42 +8,6 @@
 
 import UIKit
 
-// MARK: DSSliderPosition
-
-enum DSSliderPosition {
-  case left
-  case rigth
-
-  func getBoolValue() -> Bool {
-    switch self {
-    case .left:
-      return false
-    case .rigth:
-      return true
-    }
-  }
-}
-
-// MARK: DSSliderDelegate
-
-protocol DSSliderDelegate: class {
-  func sliderDidFinishSliding(_ slider: DSSlider, at position: DSSliderPosition)
-}
-
-// MARK: RoundImageView
-
-class RoundImageView: UIImageView {
-
-  override func layoutSubviews() {
-    super.layoutSubviews()
-
-    let radius: CGFloat = self.bounds.size.width / 2.0
-    self.layer.cornerRadius = radius
-    self.isUserInteractionEnabled = true
-    self.contentMode = .center
-  }
-}
-
 // MARK: DSSlider
 
 class DSSlider: UIView {
@@ -52,13 +16,12 @@ class DSSlider: UIView {
 
   public let textLabel = UILabel()
   public let sliderTextLabel = UILabel()
-  public let thumnailImageView = RoundImageView()
+  public let thumnailImageView = DSRoundImageView()
   public let sliderHolderView = UIView()
   public let draggedView = UIView()
   public let view = UIView()
 
   public weak var delegate: DSSliderDelegate?
-
   public var sliderPosition: DSSliderPosition = .left
   public var animationVelocity: Double = 0.2
 
@@ -92,13 +55,17 @@ class DSSlider: UIView {
     }
   }
 
-  public var isEnabled:Bool = true {
+  public var isEnabled: Bool = true {
     didSet {
       animationChangedEnabledBlock?(isEnabled)
     }
   }
 
-  public var showSliderText:Bool = true {
+  public var isImageViewRotating: Bool = true
+  public var isTextChangeAnimating: Bool = true
+  public var isDebugPrintEnabled: Bool = false
+
+  public var showSliderText: Bool = true {
     didSet {
       sliderTextLabel.isHidden = !showSliderText
     }
@@ -120,13 +87,13 @@ class DSSlider: UIView {
     }
   }
 
-  public var textColor:UIColor = UIColor.red {
+  public var textColor: UIColor = UIColor.dsSliderRedColor {
     didSet {
       textLabel.textColor = textColor
     }
   }
 
-  public var sliderTextColor:UIColor = UIColor.red {
+  public var sliderTextColor: UIColor = UIColor.dsSliderRedColor {
     didSet {
       sliderTextLabel.textColor = sliderTextColor
     }
@@ -138,7 +105,7 @@ class DSSlider: UIView {
     }
   }
 
-  public var thumbnailColor: UIColor = UIColor.red {
+  public var thumbnailColor: UIColor = UIColor.dsSliderRedColor {
     didSet {
       thumnailImageView.backgroundColor = thumbnailColor
     }
@@ -237,13 +204,15 @@ class DSSlider: UIView {
     // Setup for circle View
     leadingThumbnailViewConstraint = thumnailImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
     leadingThumbnailViewConstraint?.isActive = true
-    topThumbnailViewConstraint = thumnailImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: thumbnailViewTopDistance)
+    topThumbnailViewConstraint = thumnailImageView.topAnchor.constraint(equalTo: view.topAnchor,
+                                                                        constant: thumbnailViewTopDistance)
     topThumbnailViewConstraint?.isActive = true
     thumnailImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     thumnailImageView.heightAnchor.constraint(equalTo: thumnailImageView.widthAnchor).isActive = true
 
     // Setup for slider holder view
-    topSliderConstraint = sliderHolderView.topAnchor.constraint(equalTo: view.topAnchor, constant: sliderViewTopDistance)
+    topSliderConstraint = sliderHolderView.topAnchor.constraint(equalTo: view.topAnchor,
+                                                                constant: sliderViewTopDistance)
     topSliderConstraint?.isActive = true
     sliderHolderView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     sliderHolderView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
@@ -252,9 +221,11 @@ class DSSlider: UIView {
     // Setup for textLabel
     textLabel.topAnchor.constraint(equalTo: sliderHolderView.topAnchor).isActive = true
     textLabel.centerYAnchor.constraint(equalTo: sliderHolderView.centerYAnchor).isActive = true
-    leadingTextLabelConstraint = textLabel.leadingAnchor.constraint(equalTo: sliderHolderView.leadingAnchor, constant: textLabelLeadingDistance)
+    leadingTextLabelConstraint = textLabel.leadingAnchor.constraint(equalTo: sliderHolderView.leadingAnchor,
+                                                                    constant: textLabelLeadingDistance)
     leadingTextLabelConstraint?.isActive = true
-    textLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: CGFloat(-8)).isActive = true
+    textLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+                                        constant: CGFloat(-8)).isActive = true
 
     // Setup for sliderTextLabel
     sliderTextLabel.topAnchor.constraint(equalTo: textLabel.topAnchor).isActive = true
@@ -266,7 +237,8 @@ class DSSlider: UIView {
     draggedView.leadingAnchor.constraint(equalTo: sliderHolderView.leadingAnchor).isActive = true
     draggedView.topAnchor.constraint(equalTo: sliderHolderView.topAnchor).isActive = true
     draggedView.centerYAnchor.constraint(equalTo: sliderHolderView.centerYAnchor).isActive = true
-    trailingDraggedViewConstraint = draggedView.trailingAnchor.constraint(equalTo: thumnailImageView.trailingAnchor, constant: thumbnailViewStartingDistance)
+    trailingDraggedViewConstraint = draggedView.trailingAnchor.constraint(equalTo: thumnailImageView.trailingAnchor,
+                                                                          constant: thumbnailViewStartingDistance)
     trailingDraggedViewConstraint?.isActive = true
   }
 
@@ -316,6 +288,7 @@ class DSSlider: UIView {
   }
 
   private func updateTextLabels(withPosition position: CGFloat) {
+    guard isTextChangeAnimating else { return }
     let textAlpha = (xEndingPoint - position) / xEndingPoint
     let sliderTextAlpha = 1.0 - (xEndingPoint - position) / xEndingPoint
     textLabel.alpha = textAlpha
@@ -323,6 +296,7 @@ class DSSlider: UIView {
   }
 
   private func updateImageView(withAngle angle: CGFloat) {
+    guard isImageViewRotating else { return }
     thumnailImageView.transform = CGAffineTransform(rotationAngle: angle)
   }
 
@@ -331,10 +305,10 @@ class DSSlider: UIView {
     let translatedPoint = sender.translation(in: view).x
     switch sender.state {
     case .began:
-      break
+      dsSliderPrint("Began")
     case .changed:
       if translatedPoint > 0 {
-        debugPrint("Changed - Right")
+        dsSliderPrint("Changed - Right")
         guard sliderPosition == .left else {
           if translatedPoint >= xEndingPoint {
             updateThumbnail(withPosition: xEndingPoint)
@@ -347,36 +321,33 @@ class DSSlider: UIView {
         }
         updateThumbnail(withPosition: translatedPoint)
         updateTextLabels(withPosition: translatedPoint)
-        let ratio = xEndingPoint/CGFloat.pi
-        let angle = translatedPoint/ratio
+        let ratio = xEndingPoint / CGFloat.pi
+        let angle = translatedPoint / ratio
         updateImageView(withAngle: angle)
       } else if translatedPoint <= 0 {
-        debugPrint("Changed - Left")
+        dsSliderPrint("Changed - Left")
         guard sliderPosition == .rigth else {
           if translatedPoint <= xStartPoint {
             updateThumbnail(withPosition: xStartPoint)
           }
           return
         }
-        let reverseTranslatedPoint = xEndingPoint+translatedPoint
+        let reverseTranslatedPoint = xEndingPoint + translatedPoint
         if reverseTranslatedPoint <= xStartPoint {
           updateThumbnail(withPosition: xStartPoint)
           return
         }
         updateThumbnail(withPosition: reverseTranslatedPoint)
         updateTextLabels(withPosition: reverseTranslatedPoint)
-        let ratio = xEndingPoint/CGFloat.pi
-        let angle = reverseTranslatedPoint/ratio
+        let ratio = xEndingPoint / CGFloat.pi
+        let angle = reverseTranslatedPoint / ratio
         updateImageView(withAngle: angle)
       }
       break
     case .ended:
       if translatedPoint > 0 {
-        debugPrint("Ended - Right")
-        guard sliderPosition == .left else {
-          return
-        }
-
+        dsSliderPrint("Ended - Right")
+        guard sliderPosition == .left else { return }
         if translatedPoint > xStartPoint && translatedPoint < xEndingPoint {
           updateThumbnail(withPosition: xStartPoint, andAnimation: true)
           updateTextLabels(withPosition: xStartPoint)
@@ -390,11 +361,9 @@ class DSSlider: UIView {
           delegate?.sliderDidFinishSliding(self, at: .rigth)
         }
       } else if translatedPoint <= 0 {
-        debugPrint("Ended - Left")
-        guard sliderPosition == .rigth else {
-          return
-        }
-        let reverseTranslatedPoint = xEndingPoint+translatedPoint
+        dsSliderPrint("Ended - Left")
+        guard sliderPosition == .rigth else { return }
+        let reverseTranslatedPoint = xEndingPoint + translatedPoint
         if reverseTranslatedPoint > xStartPoint && reverseTranslatedPoint < xEndingPoint {
           updateThumbnail(withPosition: xEndingPoint, andAnimation: true)
           updateTextLabels(withPosition: xEndingPoint)

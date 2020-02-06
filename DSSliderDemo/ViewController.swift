@@ -8,8 +8,6 @@
 
 import UIKit
 
-let customRedColor: UIColor = UIColor(red:0.92, green:0.31, blue:0.27, alpha:1.0)
-
 // MARK: ViewController
 
 class ViewController: UIViewController {
@@ -48,7 +46,7 @@ class ViewController: UIViewController {
 
   private func setupUI() {
     titleLabel.text = "Emergency SOS"
-    view.backgroundColor = customRedColor
+    view.backgroundColor = UIColor.dsSliderRedColor
   }
 
   private func setupSettings() {}
@@ -58,11 +56,10 @@ class ViewController: UIViewController {
     slider.thumbnailViewStartingDistance = 5
     slider.thumbnailViewTopDistance = 5
     slider.sliderCornerRadius = sliderContainer.frame.height / 2
-    slider.thumbnailColor = customRedColor
-    slider.textColor = customRedColor
     slider.thumnailImageView.image = UIImage(named: "arrow-icon")
     slider.textLabel.text = "SLIDE TO TURN ON!"
     slider.sliderTextLabel.text = "SLIDE TO TURN OFF!"
+    slider.isDebugPrintEnabled = true
     view.addSubview(slider)
   }
 
