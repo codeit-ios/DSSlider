@@ -23,7 +23,7 @@
 		CE1C35AB23EC5344008F5BDE /* DSSliderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSSliderDelegate.swift; sourceTree = "<group>"; };
 		CE1C35AD23EC5365008F5BDE /* DSSliderPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSSliderPosition.swift; sourceTree = "<group>"; };
 		CE1C35AF23EC5616008F5BDE /* DSSliderHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSSliderHelpers.swift; sourceTree = "<group>"; };
-		CE759F0523EAC0D300BB4E3D /* DoubleSidedSlideToUnlock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoubleSidedSlideToUnlock.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE759F0523EAC0D300BB4E3D /* DSSlideToUnlock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DSSlideToUnlock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE759F0823EAC0D300BB4E3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE759F0A23EAC0D300BB4E3D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CE759F0C23EAC0D300BB4E3D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,7 +57,7 @@
 		CE759F0623EAC0D300BB4E3D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CE759F0523EAC0D300BB4E3D /* DoubleSidedSlideToUnlock.app */,
+				CE759F0523EAC0D300BB4E3D /* DSSlideToUnlock.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,9 +90,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CE759F0423EAC0D300BB4E3D /* DoubleSidedSlideToUnlock */ = {
+		CE759F0423EAC0D300BB4E3D /* DSSlideToUnlock */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CE759F1923EAC0D500BB4E3D /* Build configuration list for PBXNativeTarget "DoubleSidedSlideToUnlock" */;
+			buildConfigurationList = CE759F1923EAC0D500BB4E3D /* Build configuration list for PBXNativeTarget "DSSlideToUnlock" */;
 			buildPhases = (
 				CE759F0123EAC0D300BB4E3D /* Sources */,
 				CE759F0223EAC0D300BB4E3D /* Frameworks */,
@@ -102,9 +102,9 @@
 			);
 			dependencies = (
 			);
-			name = DoubleSidedSlideToUnlock;
+			name = DSSlideToUnlock;
 			productName = SlideToUnlock;
-			productReference = CE759F0523EAC0D300BB4E3D /* DoubleSidedSlideToUnlock.app */;
+			productReference = CE759F0523EAC0D300BB4E3D /* DSSlideToUnlock.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -122,7 +122,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CE759F0023EAC0D300BB4E3D /* Build configuration list for PBXProject "DoubleSidedSlideToUnlock" */;
+			buildConfigurationList = CE759F0023EAC0D300BB4E3D /* Build configuration list for PBXProject "DSSlideToUnlock" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -135,7 +135,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CE759F0423EAC0D300BB4E3D /* DoubleSidedSlideToUnlock */,
+				CE759F0423EAC0D300BB4E3D /* DSSlideToUnlock */,
 			);
 		};
 /* End PBXProject section */
@@ -315,8 +315,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sks.doubleSidedSlideToUnlock;
-				PRODUCT_NAME = DoubleSidedSlideToUnlock;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sks.dSSlideToUnlock;
+				PRODUCT_NAME = DSSlideToUnlock;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -333,8 +333,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sks.doubleSidedSlideToUnlock;
-				PRODUCT_NAME = DoubleSidedSlideToUnlock;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sks.dSSlideToUnlock;
+				PRODUCT_NAME = DSSlideToUnlock;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -343,7 +343,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CE759F0023EAC0D300BB4E3D /* Build configuration list for PBXProject "DoubleSidedSlideToUnlock" */ = {
+		CE759F0023EAC0D300BB4E3D /* Build configuration list for PBXProject "DSSlideToUnlock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CE759F1723EAC0D500BB4E3D /* Debug */,
@@ -352,7 +352,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CE759F1923EAC0D500BB4E3D /* Build configuration list for PBXNativeTarget "DoubleSidedSlideToUnlock" */ = {
+		CE759F1923EAC0D500BB4E3D /* Build configuration list for PBXNativeTarget "DSSlideToUnlock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CE759F1A23EAC0D500BB4E3D /* Debug */,
