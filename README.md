@@ -9,7 +9,6 @@
 [![Open Source Helpers](https://www.codetriage.com/alamofire/alamofire/badges/users.svg)](https://www.codetriage.com/alamofire/alamofire)
 
 - [Features](#features)
-- [Component Libraries](#component-libraries)
 - [Requirements](#requirements)
 - [Communication](#communication)
 - [Installation](#installation)
@@ -20,24 +19,14 @@
 
 - [x] Test Text
 
-## Component Libraries
-
-In order to keep Alamofire focused specifically on core networking implementations, additional component libraries have been created by the [Alamofire Software Foundation](https://github.com/Alamofire/Foundation) to bring additional functionality to the Alamofire ecosystem.
-
-- [AlamofireImage](https://github.com/Alamofire/AlamofireImage) - An image library including image response serializers, `UIImage` and `UIImageView` extensions, custom image filters, an auto-purging in-memory cache and a priority-based image downloading system.
-- [AlamofireNetworkActivityIndicator](https://github.com/Alamofire/AlamofireNetworkActivityIndicator) - Controls the visibility of the network activity indicator on iOS using Alamofire. It contains configurable delay timers to help mitigate flicker and can support `URLSession` instances not managed by Alamofire.
-
 ## Requirements
 
-- iOS 10.0+ / macOS 10.12+ / tvOS 10.0+ / watchOS 3.0+
+- iOS 10.0+
 - Xcode 10.2+
 - Swift 5+
 
 ## Communication
-- If you **need help with making network requests** using Alamofire, use [Stack Overflow](https://stackoverflow.com/questions/tagged/alamofire) and tag `alamofire`.
-- If you need to **find or understand an API**, check [our documentation](http://alamofire.github.io/Alamofire/) or [Apple's documentation for `URLSession`](https://developer.apple.com/documentation/foundation/url_loading_system), on top of which Alamofire is built.
-- If you need **help with an Alamofire feature**, use [our forum on swift.org](https://forums.swift.org/c/related-projects/alamofire).
-- If you'd like to **discuss Alamofire best practices**, use [our forum on swift.org](https://forums.swift.org/c/related-projects/alamofire).
+- If you'd like to **contact us** write to (codeit email)
 - If you'd like to **discuss a feature request**, use [our forum on swift.org](https://forums.swift.org/c/related-projects/alamofire). 
 - If you **found a bug**, open an issue here on GitHub and follow the guide. The more detail the better!
 - If you **want to contribute**, submit a pull request.
