@@ -56,10 +56,9 @@ class ViewController: UIViewController {
     slider.thumbnailViewStartingDistance = 5
     slider.thumbnailViewTopDistance = 5
     slider.sliderCornerRadius = sliderContainer.frame.height / 2
-    slider.thumnailImageView.image = UIImage(named: "arrow-icon")
-    slider.textLabel.text = "SLIDE TO TURN ON!"
-    slider.sliderTextLabel.text = "SLIDE TO TURN OFF!"
-    slider.isDebugPrintEnabled = true
+    slider.sliderImageView.image = UIImage(named: "arrow-icon")
+    slider.sliderBackgroundViewTextLabel.text = "SLIDE TO TURN ON!"
+    slider.sliderDraggedViewTextLabel.text = "SLIDE TO TURN OFF!"
     view.addSubview(slider)
   }
 
