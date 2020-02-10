@@ -53,12 +53,33 @@ class ViewController: UIViewController {
 
   private func setupSlider() {
     let slider = DSSlider(frame: sliderContainer.frame, delegate: self)
-    slider.thumbnailViewStartingDistance = 5
-    slider.thumbnailViewTopDistance = 5
+
+    slider.isDoubleSideEnabled = true
+    slider.isImageViewRotating = true
+    slider.isTextChangeAnimating = true
+    slider.isDebugPrintEnabled = false
+    slider.isShowSliderText = true
+    slider.isEnabled = true
+
+    slider.sliderAnimationVelocity = 0.2
+    slider.sliderViewTopDistance = 0.0
+    slider.sliderImageViewTopDistance = 5
+    slider.sliderImageViewStartingDistance = 5
+    slider.sliderTextLabelLeadingDistance = 0
     slider.sliderCornerRadius = sliderContainer.frame.height / 2
+
+    slider.sliderBackgroundColor = UIColor.white
+    slider.sliderBackgroundViewTextColor = UIColor.dsSliderRedColor
+    slider.sliderDraggedViewTextColor = UIColor.dsSliderRedColor
+    slider.sliderDraggedViewBackgroundColor = UIColor.white
+    slider.sliderImageViewBackgroundColor = UIColor.dsSliderRedColor
+
+    slider.sliderTextFont = UIFont.systemFont(ofSize: 15.0)
+
     slider.sliderImageView.image = UIImage(named: "arrow-icon")
     slider.sliderBackgroundViewTextLabel.text = "SLIDE TO TURN ON!"
     slider.sliderDraggedViewTextLabel.text = "SLIDE TO TURN OFF!"
+
     view.addSubview(slider)
   }
 

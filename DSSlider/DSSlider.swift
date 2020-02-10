@@ -14,6 +14,8 @@ class DSSlider: UIView {
 
   // MARK: Public Properties
 
+  // MARK: Views
+
   public let sliderView = UIView()
   public let sliderBackgroundView = UIView()
   public let sliderBackgroundViewTextLabel = UILabel()
@@ -21,37 +23,20 @@ class DSSlider: UIView {
   public let sliderDraggedViewTextLabel = UILabel()
   public let sliderImageView = DSRoundImageView()
 
+  // MARK: Delegate
+
   public weak var delegate: DSSliderDelegate?
-  public var sliderPosition: DSSliderPosition = .left
-  public var animationVelocity: Double = 0.2
 
-  public var sliderViewTopDistance: CGFloat = 0.0 {
-    didSet {
-      topSliderConstraint?.constant = sliderViewTopDistance
-      layoutIfNeeded()
-    }
-  }
+  // MARK: Flags
 
-  public var thumbnailViewTopDistance: CGFloat = 0.0 {
-    didSet {
-      topThumbnailViewConstraint?.constant = thumbnailViewTopDistance
-      thumbnailViewStartingDistance = thumbnailViewTopDistance
-      layoutIfNeeded()
-    }
-  }
+  public var isDoubleSideEnabled: Bool = true
+  public var isImageViewRotating: Bool = true
+  public var isTextChangeAnimating: Bool = true
+  public var isDebugPrintEnabled: Bool = false
 
-  public var thumbnailViewStartingDistance: CGFloat = 0.0 {
+  public var isShowSliderText: Bool = true {
     didSet {
-      leadingThumbnailViewConstraint?.constant = thumbnailViewStartingDistance
-      trailingDraggedViewConstraint?.constant = thumbnailViewStartingDistance
-      setNeedsLayout()
-    }
-  }
-
-  public var textLabelLeadingDistance: CGFloat = 0 {
-    didSet {
-      leadingTextLabelConstraint?.constant = textLabelLeadingDistance
-      setNeedsLayout()
+      sliderDraggedViewTextLabel.isHidden = !isShowSliderText
     }
   }
 
@@ -61,18 +46,39 @@ class DSSlider: UIView {
     }
   }
 
-  public var isImageViewRotating: Bool = true
-  public var isTextChangeAnimating: Bool = true
-  public var isDebugPrintEnabled: Bool = false
-  public var isDoubleSideEnabled: Bool = true
+  // MARK: Parameters
 
-  public var showSliderText: Bool = true {
+  public var sliderAnimationVelocity: Double = 0.2
+
+  public var sliderViewTopDistance: CGFloat = 0.0 {
     didSet {
-      sliderDraggedViewTextLabel.isHidden = !showSliderText
+      topSliderConstraint?.constant = sliderViewTopDistance
+      layoutIfNeeded()
     }
   }
 
-  public var animationChangedEnabledBlock:((Bool) -> Void)?
+  public var sliderImageViewTopDistance: CGFloat = 0.0 {
+    didSet {
+      topImageViewConstraint?.constant = sliderImageViewTopDistance
+      sliderImageViewStartingDistance = sliderImageViewTopDistance
+      layoutIfNeeded()
+    }
+  }
+
+  public var sliderImageViewStartingDistance: CGFloat = 0.0 {
+    didSet {
+      leadingImageViewConstraint?.constant = sliderImageViewStartingDistance
+      trailingDraggedViewConstraint?.constant = sliderImageViewStartingDistance
+      setNeedsLayout()
+    }
+  }
+
+  public var sliderTextLabelLeadingDistance: CGFloat = 0 {
+    didSet {
+      leadingTextLabelConstraint?.constant = sliderTextLabelLeadingDistance
+      setNeedsLayout()
+    }
+  }
 
   public var sliderCornerRadius: CGFloat = 30.0 {
     didSet {
@@ -81,6 +87,8 @@ class DSSlider: UIView {
     }
   }
 
+  // MARK: Colors
+
   public var sliderBackgroundColor: UIColor = UIColor.white {
     didSet {
       sliderBackgroundView.backgroundColor = sliderBackgroundColor
@@ -88,58 +96,63 @@ class DSSlider: UIView {
     }
   }
 
-  public var textColor: UIColor = UIColor.dsSliderRedColor {
+  public var sliderBackgroundViewTextColor: UIColor = UIColor.dsSliderRedColor {
     didSet {
-      sliderBackgroundViewTextLabel.textColor = textColor
+      sliderBackgroundViewTextLabel.textColor = sliderBackgroundViewTextColor
     }
   }
 
-  public var sliderTextColor: UIColor = UIColor.dsSliderRedColor {
+  public var sliderDraggedViewTextColor: UIColor = UIColor.dsSliderRedColor {
     didSet {
-      sliderDraggedViewTextLabel.textColor = sliderTextColor
+      sliderDraggedViewTextLabel.textColor = sliderDraggedViewTextColor
     }
   }
 
-  public var draggedViewBackgroundColor: UIColor = UIColor.white {
+  public var sliderDraggedViewBackgroundColor: UIColor = UIColor.white {
     didSet {
-      sliderDraggedView.backgroundColor = draggedViewBackgroundColor
+      sliderDraggedView.backgroundColor = sliderDraggedViewBackgroundColor
     }
   }
 
-  public var imageViewBackgroundColor: UIColor = UIColor.dsSliderRedColor {
+  public var sliderImageViewBackgroundColor: UIColor = UIColor.dsSliderRedColor {
     didSet {
-      sliderImageView.backgroundColor = imageViewBackgroundColor
+      sliderImageView.backgroundColor = sliderImageViewBackgroundColor
     }
   }
 
-  public var textFont: UIFont = UIFont.systemFont(ofSize: 15.0) {
+  // MARK: Font
+
+  public var sliderTextFont: UIFont = UIFont.systemFont(ofSize: 15.0) {
     didSet {
-      sliderBackgroundViewTextLabel.font = textFont
-      sliderDraggedViewTextLabel.font = textFont
+      sliderBackgroundViewTextLabel.font = sliderTextFont
+      sliderDraggedViewTextLabel.font = sliderTextFont
     }
   }
 
   // MARK: Private Properties
 
-  private var leadingThumbnailViewConstraint: NSLayoutConstraint?
+  private var leadingImageViewConstraint: NSLayoutConstraint?
   private var leadingTextLabelConstraint: NSLayoutConstraint?
   private var topSliderConstraint: NSLayoutConstraint?
-  private var topThumbnailViewConstraint: NSLayoutConstraint?
+  private var topImageViewConstraint: NSLayoutConstraint?
   private var trailingDraggedViewConstraint: NSLayoutConstraint?
   private var panGestureRecognizer: UIPanGestureRecognizer?
+  private var sliderPosition: DSSliderPosition = .left
 
   private var xEndingPoint: CGFloat {
     get {
-      let endPoint = self.sliderView.frame.maxX - sliderImageView.bounds.width - thumbnailViewStartingDistance
+      let endPoint = self.sliderView.frame.maxX - sliderImageView.bounds.width - sliderImageViewStartingDistance
       return endPoint
     }
   }
 
   private var xStartPoint: CGFloat {
     get {
-      return thumbnailViewStartingDistance
+      return sliderImageViewStartingDistance
     }
   }
+
+  private var animationChangedEnabledBlock:((Bool) -> Void)?
 
   // MARK: - View Lifecycle
 
@@ -203,11 +216,11 @@ class DSSlider: UIView {
     sliderView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
 
     // Setup for circle View
-    leadingThumbnailViewConstraint = sliderImageView.leadingAnchor.constraint(equalTo: sliderView.leadingAnchor)
-    leadingThumbnailViewConstraint?.isActive = true
-    topThumbnailViewConstraint = sliderImageView.topAnchor.constraint(equalTo: sliderView.topAnchor,
-                                                                      constant: thumbnailViewTopDistance)
-    topThumbnailViewConstraint?.isActive = true
+    leadingImageViewConstraint = sliderImageView.leadingAnchor.constraint(equalTo: sliderView.leadingAnchor)
+    leadingImageViewConstraint?.isActive = true
+    topImageViewConstraint = sliderImageView.topAnchor.constraint(equalTo: sliderView.topAnchor,
+                                                                      constant: sliderImageViewTopDistance)
+    topImageViewConstraint?.isActive = true
     sliderImageView.centerYAnchor.constraint(equalTo: sliderView.centerYAnchor).isActive = true
     sliderImageView.heightAnchor.constraint(equalTo: sliderImageView.widthAnchor).isActive = true
 
@@ -223,7 +236,7 @@ class DSSlider: UIView {
     sliderBackgroundViewTextLabel.topAnchor.constraint(equalTo: sliderBackgroundView.topAnchor).isActive = true
     sliderBackgroundViewTextLabel.centerYAnchor.constraint(equalTo: sliderBackgroundView.centerYAnchor).isActive = true
     leadingTextLabelConstraint = sliderBackgroundViewTextLabel.leadingAnchor.constraint(equalTo: sliderBackgroundView.leadingAnchor,
-                                                                                        constant: textLabelLeadingDistance)
+                                                                                        constant: sliderTextLabelLeadingDistance)
     leadingTextLabelConstraint?.isActive = true
     sliderBackgroundViewTextLabel.trailingAnchor.constraint(equalTo: sliderView.trailingAnchor,
                                                             constant: CGFloat(-8)).isActive = true
@@ -239,25 +252,25 @@ class DSSlider: UIView {
     sliderDraggedView.topAnchor.constraint(equalTo: sliderBackgroundView.topAnchor).isActive = true
     sliderDraggedView.centerYAnchor.constraint(equalTo: sliderBackgroundView.centerYAnchor).isActive = true
     trailingDraggedViewConstraint = sliderDraggedView.trailingAnchor.constraint(equalTo: sliderImageView.trailingAnchor,
-                                                                                constant: thumbnailViewStartingDistance)
+                                                                                constant: sliderImageViewStartingDistance)
     trailingDraggedViewConstraint?.isActive = true
   }
 
   private func setupBaseStyle() {
-    sliderImageView.backgroundColor = imageViewBackgroundColor
+    sliderImageView.backgroundColor = sliderImageViewBackgroundColor
 
-    sliderBackgroundViewTextLabel.font = textFont
-    sliderBackgroundViewTextLabel.textColor = textColor
+    sliderBackgroundViewTextLabel.font = sliderTextFont
+    sliderBackgroundViewTextLabel.textColor = sliderBackgroundViewTextColor
     sliderBackgroundViewTextLabel.textAlignment = .center
 
-    sliderDraggedViewTextLabel.font = textFont
-    sliderDraggedViewTextLabel.textColor = sliderTextColor
+    sliderDraggedViewTextLabel.font = sliderTextFont
+    sliderDraggedViewTextLabel.textColor = sliderDraggedViewTextColor
     sliderDraggedViewTextLabel.textAlignment = .center
-    sliderDraggedViewTextLabel.isHidden = !showSliderText
+    sliderDraggedViewTextLabel.isHidden = !isShowSliderText
 
     sliderBackgroundView.backgroundColor = sliderBackgroundColor
     sliderBackgroundView.layer.cornerRadius = sliderCornerRadius
-    sliderDraggedView.backgroundColor = draggedViewBackgroundColor
+    sliderDraggedView.backgroundColor = sliderDraggedViewBackgroundColor
     sliderDraggedView.layer.cornerRadius = sliderCornerRadius
     sliderDraggedView.clipsToBounds = true
     sliderDraggedView.layer.masksToBounds = true
@@ -279,10 +292,10 @@ class DSSlider: UIView {
   }
 
   private func updateThumbnail(withPosition position: CGFloat, andAnimation animation: Bool = false) {
-    leadingThumbnailViewConstraint?.constant = position
+    leadingImageViewConstraint?.constant = position
     setNeedsLayout()
     if animation {
-      UIView.animate(withDuration: animationVelocity) {
+      UIView.animate(withDuration: sliderAnimationVelocity) {
         self.sliderView.layoutIfNeeded()
       }
     }
