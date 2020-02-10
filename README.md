@@ -1,8 +1,8 @@
+![DSSlider](https://github.com/codeit-ios/DSSlider/blob/develop/dsslider.png)
+
 # DSSlider
 
 ### Fully customized Double Sided Slide to Unlock Control, written on Swift under the short name - DSSlider.
-
-![DSSlider](https://github.com/codeit-ios/DSSlider/blob/develop/dsslider.png)
 
 - [Features](#features)
 - [Requirements](#requirements)
