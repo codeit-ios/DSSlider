@@ -52,7 +52,7 @@ Once you have your Swift package set up, adding Alamofire as a dependency is as 
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/DSSlider/DSSlider.git", from: "0.0.1")
+    .package(url: "https://github.com/codeit-ios/DSSlider", from: "0.0.1")
 ]
 ```
 
@@ -71,7 +71,7 @@ If you prefer not to use any of the aforementioned dependency managers, you can 
 - Add DSSlider as a git [submodule](https://git-scm.com/docs/git-submodule) by running the following command:
 
   ```bash
-  $ git submodule add https://github.com/DSSlider/DSSlider.git
+  $ git submodule add https://github.com/codeit-ios/DSSlider
   ```
 
 - Open the new `DSSlider` folder, and drag the `DSSlider.xcodeproj` into the Project Navigator of your application's Xcode project.
@@ -120,10 +120,10 @@ slider.sliderTextLabelLeadingDistance = 0
 slider.sliderCornerRadius = sliderContainer.frame.height / 2
 
 slider.sliderBackgroundColor = UIColor.white
-slider.sliderBackgroundViewTextColor = UIColor.dsSliderRedColor
-slider.sliderDraggedViewTextColor = UIColor.dsSliderRedColor
+slider.sliderBackgroundViewTextColor = DSSlider.dsSliderRedColor()
+slider.sliderDraggedViewTextColor = DSSlider.dsSliderRedColor()
 slider.sliderDraggedViewBackgroundColor = UIColor.white
-slider.sliderImageViewBackgroundColor = UIColor.dsSliderRedColor
+slider.sliderImageViewBackgroundColor = DSSlider.dsSliderRedColor()
 
 slider.sliderTextFont = UIFont.systemFont(ofSize: 15.0)
 
