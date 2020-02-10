@@ -1,6 +1,6 @@
 # DSSlider
 
-## Double Sided **Slide To Unlock** Controll
+### Fully customized Double Sided Slide to Unlock Control, written on Swift under the short name - DSSlider.
 
 - [Features](#features)
 - [Requirements](#requirements)
