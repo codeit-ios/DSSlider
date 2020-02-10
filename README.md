@@ -9,7 +9,15 @@
 [![GitHub stars](https://img.shields.io/github/stars/codeit-ios/DSSlider)](https://github.com/codeit-ios/DSSlider/stargazers)
 [![GitHub license](https://img.shields.io/github/license/codeit-ios/DSSlider)](https://github.com/codeit-ios/DSSlider/blob/develop/LICENSE)
 ![Cocoapods platforms](https://img.shields.io/cocoapods/p/DSSlider)
-
+![GitHub top language](https://img.shields.io/github/languages/top/codeit-ios/DSSlider)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/codeit-ios/DSSlider)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/codeit-ios/DSSlider)
+![GitHub watchers](https://img.shields.io/github/watchers/codeit-ios/DSSlider?style=plastic)
+![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/codeit-ios/DSSlider)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/codeit-ios/DSSlider)
+![GitHub contributors](https://img.shields.io/github/contributors/codeit-ios/DSSlider)
+![GitHub last commit](https://img.shields.io/github/last-commit/codeit-ios/DSSlider)
+![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-yellowgreen)
 
 - [Features](#features)
 - [Requirements](#requirements)
@@ -29,7 +37,7 @@
 - Swift 5+
 
 ## Communication
-- If you'd like to **contact us** write to (codeit email)
+- If you'd like to **contact us** write to kostiantyn.stoliarenko@codeit.pro
 - If you **found a bug**, open an issue here on GitHub and follow the guide. The more detail the better!
 - If you **want to contribute**, submit a pull request.
 
