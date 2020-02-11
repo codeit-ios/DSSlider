@@ -6,7 +6,7 @@
 import PackageDescription
 
 let package = Package(name: "DSSlider",
-                      platforms: [.macOS(.v10_12)],
+                      platforms: [.iOS(.v10)],
                       products: [.library(name: "DSSlider",
                                           targets: ["DSSlider"])],
                       targets: [.target(name: "DSSlider",

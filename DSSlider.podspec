@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'DSSlider'
-  s.version = '0.0.2'
+  s.version = '0.0.3'
   s.license = { :type => 'MIT', :file => 'LICENSE' }
   s.summary = 'Fully customized Double Sided Slide to Unlock Control, written on Swift under the short name - DSSlider'
   s.homepage = 'https://github.com/codeit-ios/DSSlider'
