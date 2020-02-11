@@ -4,20 +4,19 @@
 
 ### Fully customized Double Sided Slide to Unlock Control, written on Swift under the short name - DSSlider.
 
+![CocoaPods compatible](https://img.shields.io/badge/CocoaPods-compatible-brightgreen)
+![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-brightgreen)
+![Swift Package Manager compatible](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen)
+![Cocoapods platforms](https://img.shields.io/cocoapods/p/DSSlider)
 [![GitHub issues](https://img.shields.io/github/issues/codeit-ios/DSSlider)](https://github.com/codeit-ios/DSSlider/issues)
 [![GitHub forks](https://img.shields.io/github/forks/codeit-ios/DSSlider)](https://github.com/codeit-ios/DSSlider/network)
 [![GitHub stars](https://img.shields.io/github/stars/codeit-ios/DSSlider)](https://github.com/codeit-ios/DSSlider/stargazers)
-[![GitHub license](https://img.shields.io/github/license/codeit-ios/DSSlider)](https://github.com/codeit-ios/DSSlider/blob/develop/LICENSE)
-![Cocoapods platforms](https://img.shields.io/cocoapods/p/DSSlider)
-![GitHub top language](https://img.shields.io/github/languages/top/codeit-ios/DSSlider)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/codeit-ios/DSSlider)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/codeit-ios/DSSlider)
 ![GitHub watchers](https://img.shields.io/github/watchers/codeit-ios/DSSlider?style=plastic)
-![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/codeit-ios/DSSlider)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/codeit-ios/DSSlider)
 ![GitHub contributors](https://img.shields.io/github/contributors/codeit-ios/DSSlider)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/codeit-ios/DSSlider)
 ![GitHub last commit](https://img.shields.io/github/last-commit/codeit-ios/DSSlider)
-![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-yellowgreen)
+[![GitHub license](https://img.shields.io/github/license/codeit-ios/DSSlider)](https://github.com/codeit-ios/DSSlider/blob/develop/LICENSE)
+
 
 - [Features](#features)
 - [Requirements](#requirements)
@@ -28,7 +27,11 @@
 
 ## Features
 
-- [x] Test Text
+- [x] Full customization of colors, fonts and images
+- [x] Ability to change sizes and margins
+- [x] Ability to change animation speed, turn on/off additional effects
+- [x] Delegate methods
+- [x] Slider operation both in two directions and in one
 
 ## Requirements
 
@@ -48,7 +51,7 @@
 [CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate Alamofire into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
-pod 'DSSlider', '~> 0.0.1'
+pod 'DSSlider', '~> 0.0.3'
 ```
 
 ### Carthage
@@ -56,18 +59,18 @@ pod 'DSSlider', '~> 0.0.1'
 [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To integrate Alamofire into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "DSSlider/DSSlider" "0.0.1"
+github "codeit-ios/DSSlider" "0.0.3"
 ```
 
 ### Swift Package Manager
 
-The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler. It is in early development, but Alamofire does support its use on supported platforms.
+The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler. It is in early development, but DSSlider does support its use on supported platforms.
 
-Once you have your Swift package set up, adding Alamofire as a dependency is as easy as adding it to the `dependencies` value of your `Package.swift`.
+Once you have your Swift package set up, adding DSSlider as a dependency is as easy as adding it to the `dependencies` value of your `Package.swift`.
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/codeit-ios/DSSlider", from: "0.0.1")
+    .package(url: "https://github.com/codeit-ios/DSSlider", from: "0.0.3")
 ]
 ```
 
@@ -153,4 +156,4 @@ Take a look at the `Example` project for an integration example.
 
 ## License
 
-Alamofire is released under the MIT license. [See LICENSE](https://github.com/Alamofire/Alamofire/blob/master/LICENSE) for details.
+DSSlider is released under the MIT license. [See LICENSE](https://github.com/codeit-ios/DSSlider/blob/master/LICENSE) for details.
