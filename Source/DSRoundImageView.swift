@@ -24,11 +24,13 @@
 
 import UIKit
 
-public class DSRoundImageView: UIImageView {
+// MARK: DSRoundImageView
 
+public class DSRoundImageView: UIImageView {
+  
   override public func layoutSubviews() {
     super.layoutSubviews()
-
+    
     layer.cornerRadius = bounds.size.width / 2.0
     isUserInteractionEnabled = true
     contentMode = .center

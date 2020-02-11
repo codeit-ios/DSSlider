@@ -225,22 +225,19 @@ public class DSSlider: UIView {
     sliderDraggedViewTextLabel.translatesAutoresizingMaskIntoConstraints = false
     sliderDraggedView.translatesAutoresizingMaskIntoConstraints = false
 
-    // Setup for view
     sliderView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
     sliderView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
     sliderView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
     sliderView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
 
-    // Setup for circle View
     leadingImageViewConstraint = sliderImageView.leadingAnchor.constraint(equalTo: sliderView.leadingAnchor)
     leadingImageViewConstraint?.isActive = true
     topImageViewConstraint = sliderImageView.topAnchor.constraint(equalTo: sliderView.topAnchor,
-                                                                      constant: sliderImageViewTopDistance)
+                                                                  constant: sliderImageViewTopDistance)
     topImageViewConstraint?.isActive = true
     sliderImageView.centerYAnchor.constraint(equalTo: sliderView.centerYAnchor).isActive = true
     sliderImageView.heightAnchor.constraint(equalTo: sliderImageView.widthAnchor).isActive = true
 
-    // Setup for slider holder view
     topSliderConstraint = sliderBackgroundView.topAnchor.constraint(equalTo: sliderView.topAnchor,
                                                                     constant: sliderViewTopDistance)
     topSliderConstraint?.isActive = true
@@ -248,7 +245,6 @@ public class DSSlider: UIView {
     sliderBackgroundView.leadingAnchor.constraint(equalTo: sliderView.leadingAnchor).isActive = true
     sliderBackgroundView.centerXAnchor.constraint(equalTo: sliderView.centerXAnchor).isActive = true
 
-    // Setup for textLabel
     sliderBackgroundViewTextLabel.topAnchor.constraint(equalTo: sliderBackgroundView.topAnchor).isActive = true
     sliderBackgroundViewTextLabel.centerYAnchor.constraint(equalTo: sliderBackgroundView.centerYAnchor).isActive = true
     leadingTextLabelConstraint = sliderBackgroundViewTextLabel.leadingAnchor.constraint(equalTo: sliderBackgroundView.leadingAnchor,
@@ -257,13 +253,11 @@ public class DSSlider: UIView {
     sliderBackgroundViewTextLabel.trailingAnchor.constraint(equalTo: sliderView.trailingAnchor,
                                                             constant: CGFloat(-8)).isActive = true
 
-    // Setup for sliderTextLabel
     sliderDraggedViewTextLabel.topAnchor.constraint(equalTo: sliderBackgroundViewTextLabel.topAnchor).isActive = true
     sliderDraggedViewTextLabel.centerYAnchor.constraint(equalTo: sliderBackgroundViewTextLabel.centerYAnchor).isActive = true
     sliderDraggedViewTextLabel.leadingAnchor.constraint(equalTo: sliderBackgroundViewTextLabel.leadingAnchor).isActive = true
     sliderDraggedViewTextLabel.trailingAnchor.constraint(equalTo: sliderBackgroundViewTextLabel.trailingAnchor).isActive = true
 
-    // Setup for Dragged View
     sliderDraggedView.leadingAnchor.constraint(equalTo: sliderBackgroundView.leadingAnchor).isActive = true
     sliderDraggedView.topAnchor.constraint(equalTo: sliderBackgroundView.topAnchor).isActive = true
     sliderDraggedView.centerYAnchor.constraint(equalTo: sliderBackgroundView.centerYAnchor).isActive = true

@@ -24,6 +24,8 @@
 
 import UIKit
 
+// MARK: UIColor Extension
+
 extension UIColor {
   static let dsSliderRedColor = UIColor(red: 0.92, green: 0.31, blue: 0.27, alpha: 1.0)
 }
