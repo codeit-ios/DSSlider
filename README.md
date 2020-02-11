@@ -4,19 +4,18 @@
 
 ### Fully customized Double Sided Slide to Unlock Control, written on Swift under the short name - DSSlider.
 
+![Cocoapods platforms](https://img.shields.io/cocoapods/p/DSSlider)
 ![CocoaPods compatible](https://img.shields.io/badge/CocoaPods-compatible-brightgreen)
 ![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-brightgreen)
 ![Swift Package Manager compatible](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen)
-![Cocoapods platforms](https://img.shields.io/cocoapods/p/DSSlider)
 
 [![GitHub issues](https://img.shields.io/github/issues/codeit-ios/DSSlider)](https://github.com/codeit-ios/DSSlider/issues)
 [![GitHub forks](https://img.shields.io/github/forks/codeit-ios/DSSlider)](https://github.com/codeit-ios/DSSlider/network)
 [![GitHub stars](https://img.shields.io/github/stars/codeit-ios/DSSlider)](https://github.com/codeit-ios/DSSlider/stargazers)
-
 ![GitHub watchers](https://img.shields.io/github/watchers/codeit-ios/DSSlider?style=plastic)
 ![GitHub contributors](https://img.shields.io/github/contributors/codeit-ios/DSSlider)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/codeit-ios/DSSlider)
 
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/codeit-ios/DSSlider)
 ![GitHub last commit](https://img.shields.io/github/last-commit/codeit-ios/DSSlider)
 [![GitHub license](https://img.shields.io/github/license/codeit-ios/DSSlider)](https://github.com/codeit-ios/DSSlider/blob/develop/LICENSE)
 
