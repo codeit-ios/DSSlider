@@ -4,19 +4,20 @@
 
 ### Fully customized Double Sided Slide to Unlock Control, written on Swift under the short name - DSSlider.
 
+![Cocoapods platforms](https://img.shields.io/cocoapods/p/DSSlider)
 ![CocoaPods compatible](https://img.shields.io/badge/CocoaPods-compatible-brightgreen)
 ![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-brightgreen)
 ![Swift Package Manager compatible](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen)
-![Cocoapods platforms](https://img.shields.io/cocoapods/p/DSSlider)
+
 [![GitHub issues](https://img.shields.io/github/issues/codeit-ios/DSSlider)](https://github.com/codeit-ios/DSSlider/issues)
 [![GitHub forks](https://img.shields.io/github/forks/codeit-ios/DSSlider)](https://github.com/codeit-ios/DSSlider/network)
 [![GitHub stars](https://img.shields.io/github/stars/codeit-ios/DSSlider)](https://github.com/codeit-ios/DSSlider/stargazers)
 ![GitHub watchers](https://img.shields.io/github/watchers/codeit-ios/DSSlider?style=plastic)
 ![GitHub contributors](https://img.shields.io/github/contributors/codeit-ios/DSSlider)
+
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/codeit-ios/DSSlider)
 ![GitHub last commit](https://img.shields.io/github/last-commit/codeit-ios/DSSlider)
 [![GitHub license](https://img.shields.io/github/license/codeit-ios/DSSlider)](https://github.com/codeit-ios/DSSlider/blob/develop/LICENSE)
-
 
 - [Features](#features)
 - [Requirements](#requirements)
@@ -51,7 +52,7 @@
 [CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate Alamofire into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
-pod 'DSSlider', '~> 0.0.3'
+pod 'DSSlider', '~> 0.0.4'
 ```
 
 ### Carthage
@@ -59,7 +60,7 @@ pod 'DSSlider', '~> 0.0.3'
 [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To integrate Alamofire into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "codeit-ios/DSSlider" "0.0.3"
+github "codeit-ios/DSSlider" "0.0.4"
 ```
 
 ### Swift Package Manager
@@ -70,7 +71,7 @@ Once you have your Swift package set up, adding DSSlider as a dependency is as e
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/codeit-ios/DSSlider", from: "0.0.3")
+    .package(url: "https://github.com/codeit-ios/DSSlider", from: "0.0.4")
 ]
 ```
 

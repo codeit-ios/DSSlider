@@ -29,7 +29,7 @@ import Foundation
 public enum DSSliderPosition {
   case left
   case rigth
-
+  
   public func getBoolValue() -> Bool {
     switch self {
     case .left:

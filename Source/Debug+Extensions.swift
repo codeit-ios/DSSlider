@@ -24,8 +24,10 @@
 
 import Foundation
 
-extension DSSlider {
+// MARK: DSSlider Extension
 
+extension DSSlider {
+  
   func dsSliderPrint(_ string: String) {
     guard isDebugPrintEnabled else { return }
     debugPrint("DSSlider: \(string)")
