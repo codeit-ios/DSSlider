@@ -333,6 +333,9 @@ public class DSSlider: UIView {
   @objc private func handlePanGesture(_ sender: UIPanGestureRecognizer) {
     guard isEnabled else { return }
     let translatedPoint = sender.translation(in: sliderView).x
+    if(UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft){ // for support RTL
+          translatedPoint = -translatedPoint
+    }
     switch sender.state {
     case .began:
       dsSliderPrint("Began")
